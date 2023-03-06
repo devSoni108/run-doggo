@@ -30,11 +30,11 @@ export class UI {
             if (this.game.score > this.game.winningScore){
                 context.fillText('Booyah', this.game.width * 0.5, this.game.height * 0.5 - 20);
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
-                context.fillText('What are creatures of the night afraid of? YOU!!!', this.game.width * 0.5, this.game.height * 0.5 + 20);
+                context.fillText('What are creatures of the night afraid of? YOU!!! Press F5 and get your highest score yet!', this.game.width * 0.5, this.game.height * 0.5 + 20);
             } else {
                 context.fillText('Love at first bite?', this.game.width * 0.5, this.game.height * 0.5 - 20);
                 context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily;
-                context.fillText('Nope. Betterluck next time!', this.game.width * 0.5, this.game.height * 0.5 + 20);
+                context.fillText('Nope. Betterluck next time! Press F5 to try again!', this.game.width * 0.5, this.game.height * 0.5 + 20);
             }
         }
         context.restore();
