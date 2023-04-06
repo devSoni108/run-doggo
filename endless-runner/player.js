@@ -23,12 +23,6 @@ export class Player {
         this.states = [new Sitting(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Rolling(this.game), new Diving(this.game), new Hit(this.game)];
         this.currentState = null;
     }
-    restart(){
-        this.x = 100;
-        this.y = this.game.height - this.height - this.game.groundMargin;
-        this.frameX = 0;
-        this.frameY = 0;
-    }
     update(input, deltaTime){
         this.checkCollision();
         this.currentState.handleInput(input);
