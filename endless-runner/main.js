@@ -10,6 +10,12 @@ window.addEventListener('load', function(){
     canvas.width = 900;
     canvas.height = 500;
 
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', function() {
+        game.gameStarted = true;
+    });
+
+
     class Game {
         constructor(width, height){
             this.width = width;
@@ -34,6 +40,7 @@ window.addEventListener('load', function(){
             this.fontColor = 'black';
             this.time = 0;
             this.maxTime = 30000;
+            this.gameStarted = false;
             this.gameOver = false;
             this.lives = 5;
             this.player.currentState = this.player.states[0];
@@ -106,8 +113,12 @@ window.addEventListener('load', function(){
         const deltaTime = timeStamp - lastTime;
         lastTime = timeStamp;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        game.update(deltaTime);
-        game.draw(ctx);
+        
+        if (game.gameStarted) {
+            game.update(deltaTime);
+            game.draw(ctx);
+        }    
+
         if (!game.gameOver) requestAnimationFrame(animate);
     }
     animate(0);

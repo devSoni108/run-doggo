@@ -7,7 +7,7 @@ export class Player {
         this.game = game;
         this.width = 100;
         this.height = 91.3;
-        this.x = 0;
+        this.x = 100;
         this.y = this.game.height - this.height - this.game.groundMargin;
         this.vy = 0;
         this.weight = 1;
@@ -22,6 +22,12 @@ export class Player {
         this.maxSpeed = 10;
         this.states = [new Sitting(this.game), new Running(this.game), new Jumping(this.game), new Falling(this.game), new Rolling(this.game), new Diving(this.game), new Hit(this.game)];
         this.currentState = null;
+    }
+    restart(){
+        this.x = 100;
+        this.y = this.game.height - this.height - this.game.groundMargin;
+        this.frameX = 0;
+        this.frameY = 0;
     }
     update(input, deltaTime){
         this.checkCollision();
